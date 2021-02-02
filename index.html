@@ -13,11 +13,21 @@
     </head>
     <body>
         <section class="container">
-            <header class="header">todo-lst</header>
+            <header class="header">Todo List</header>
+            <h2>아래 리스트를 추가해주세요</h2>
             <ul class="items">
                 <li class="item__row">
                     <div class="item">
-                        <span class="item__name"></span>
+                        <span class="item__name">기술블로그</span>
+                        <button class="item__delete">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </li>
+
+                <li class="item__row">
+                    <div class="item">
+                        <span class="item__name">기술블로그</span>
                         <button class="item__delete">
                             <i class="fas fa-trash-alt"></i>
                         </button>
@@ -26,9 +36,7 @@
             </ul>
             <footer class="footer">
                 <input type="text" class="todo__input" />
-                <button class="addBtn">
-                    <i class="fas fa-plus-circle"></i>
-                </button>
+                <button class="todo__add">추가하기</button>
             </footer>
         </section>
     </body>
