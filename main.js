@@ -9,7 +9,7 @@ function onAdd() {
     console.log(text);
 
     // 받아온 아이템을 리스트에 추가시킴
-
+    const item = createItem();
     // const item = createItem();
 
     // 입력창 초기화 및 포커스
