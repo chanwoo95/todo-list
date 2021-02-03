@@ -19,9 +19,9 @@ function onAdd() {
 
 addBtn.addEventListener('click', onAdd);
 
-function createItem() {
-    const li = document.createElement('li');
-    li.setAttribute('className', 'item__row');
-}
+// function createItem() {
+//     const li = document.createElement('li');
+//     li.setAttribute('className', 'item__row');
+// }
 
 // 삭제버튼을 눌렀을 때 리스트 삭제
