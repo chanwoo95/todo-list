@@ -78,7 +78,7 @@ button {
     border: none;
 }
 
-.todo__add {
+.item__add {
     width: 40%;
     background-color: #487e95;
     color: white;
@@ -88,6 +88,6 @@ button {
     border: none;
 }
 
-.todo__add:hover {
+.item__add:hover {
     background-color: #ff9292;
 }
