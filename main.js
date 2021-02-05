@@ -1,40 +1,55 @@
-// 추가하기 버튼을 눌렀을 때 입력창 초기화 및 리스트에 추가
 const items = document.querySelector('.items');
 const todoInput = document.querySelector('.todo__input');
 const addBtn = document.querySelector('.item__add');
 const delBtn = document.querySelector('.item__delete');
 
 function onAdd() {
-    // 아이템의 정보를 받아옴
     const text = todoInput.value;
-    console.log(text);
 
-    // 받아온 아이템을 리스트에 추가시킴
+    if (text == '') {
+        todoInput.focus();
+        return;
+    }
+
     const item = createItem(text);
     items.appendChild(item);
+    item.scrollIntoView({ block: 'center' });
 
-    // 입력창 초기화 및 포커스
     todoInput.focus();
-    text.value = '';
+    todoInput.value = '';
 }
 
 addBtn.addEventListener('click', onAdd);
 
 function createItem(text) {
     const itemRow = document.createElement('li');
-    itemRow.setAttribute('className', 'item__row');
+    itemRow.setAttribute('class', 'item__row');
+
+    const item = document.createElement('div');
+    item.setAttribute('class', 'item');
 
     const span = document.createElement('span');
-    span.setAttribute('className', 'item__name');
-    span.innerHTML = text;
+    span.setAttribute('class', 'item__name');
+    span.innerText = text;
 
     const delBtn = document.createElement('button');
-    delBtn.setAttribute('className', 'item__delete');
+    delBtn.setAttribute('class', 'item__delete');
     delBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
 
-    itemRow.appendChild(span);
-    itemRow.appendChild(delBtn);
-    items.appendChild(itemRow);
+    delBtn.addEventListener('click', () => {
+        items.removeChild(itemRow);
+    });
+
+    item.appendChild(span);
+    item.appendChild(delBtn);
+
+    itemRow.appendChild(item);
 
     return itemRow;
 }
+
+todoInput.addEventListener('keypress', (event) => {
+    if (event.key == 'Enter') {
+        onAdd();
+    }
+});
